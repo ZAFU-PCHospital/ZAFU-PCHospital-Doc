@@ -51,17 +51,18 @@
 | `Win + G`                                | 打开 XboxGameBar                              |
 | `Win + A`                                | 打开控制中心                                  |
 | `Win + Home`                             | 最小化其他窗口                                |
-| `Win + 1-9`                              | 打开 Dock 栏中第、*个程序                     |
-| `Win + Alt + 1-9`                        | 打开 Dock 栏中第、*个程序的扩展列表           |
-| `Win + Ctrl + Shift + 1-9`               | 以管理员权限打开 Dock 栏中第、*个程序         |
+| `Win + 1-9`                              | 打开 Dock 栏中第*个程序                       |
+| `Win + Alt + 1-9`                        | 打开 Dock 栏中第*个程序的扩展列表             |
+| `Win + Ctrl + Shift + 1-9`               | 以管理员权限打开 Dock 栏中第*个程序           |
 | `Win + Shift + S`                        | 截图（区域截图，非 `PrintScreen`）            |
-| `Win + Shift + T`                        | OCR（对系统版本有要求）                       |
+| `Win + Shift + T`                        | OCR（仅适用于 `Windows 11` 特定版本之后）     |
 | `Win + Tab`                              | 打开任务视图                                  |
 | `Win + =`                                | 打开放大镜/放大放大镜                         |
 | `Win + -`                                | 缩小放大镜                                    |
 | `Win + Esc`                              | 关闭放大镜                                    |
 | `Win + Left / Right`                     | 窗口左/右分屏                                 |
-| `Win + Up / Down`                        | 窗口上/下分屏，全屏                           |
+| `Win + Up / Down`                        | 窗口上分屏，全屏，最小化                      |
+| `Win + Alt + Up / Down`                  | 窗口上/下分屏（仅适用于 `Windows 11`）        |
 | `Win + Shift +Up`                        | 拉伸窗口至屏幕的顶端和底端                    |
 | `Win + Ctrl + V`                         | 打开声音控制面板                              |
 | `Alt + Tab`                              | 切换已打开的窗口                              |
