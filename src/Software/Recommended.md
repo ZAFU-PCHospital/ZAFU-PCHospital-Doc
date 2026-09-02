@@ -8,11 +8,11 @@
 
 - 完全免费，傻瓜式操作，版本多样
 - 可以自定安装位置，自选需要安装的应用程序
-- 下载方便，可以通过镜像站下载，也可以直接使用 power shell 下载命令
+- 下载方便，可以通过镜像站下载，也可以直接使用 powershell 下载命令
 
 ### 使用步骤
 
-1. 访问 [Office Tool Plus 官网](https://www.officetool.plus/zh-cn/)，点击开始，在介绍栏中找到下载并使用，选择任意镜像站，根据系统架构选择对应文件下载（不确定的话选 x86 版本，兼容性最好）。或者直接使用 power shell 下载命令（irm https://officetool.plus | iex）
+1. 访问 [Office Tool Plus 官网](https://www.officetool.plus/zh-cn/)，点击开始，在介绍栏中找到下载并使用，选择任意镜像站，根据系统架构选择对应文件下载（不确定的话选 x86 版本，兼容性最好）。或者直接使用 powershell 下载命令 `irm https://officetool.plus | iex`
 2. 下载完成后，请将整个压缩包解压到一个合适的位置，例如桌面。请勿在压缩包内直接双击运行 Office Tool Plus.
 3. 双击 Office Tool Plus.exe 以运行程序
 4. 打开软件后，点击部署，在部署 Office 下拉菜单中进行配置，部署模式选择安装，体系结构选择对应（通常 64 位），然后在添加产品选择需要的 Office 版本（建议选择 2024 标准版），语言选择简体中文，然后在应用程序中把不需要的程序取消勾选（例如大多数人用不到 OneDrive、Outlook 和 OneNote）。全部完成后，回到最上方，点击开始部署
@@ -115,7 +115,7 @@
 - 不同桌面的同一个之前的软件在切换栏里没有隔离
 
 Alttab 实现：
-alt + tab+多桌面 -> 触控板滑动切换丝滑
+alt + tab + 多桌面 -> 触控板滑动切换丝滑
 
 ![alt text](assets/alttab.png)
 
