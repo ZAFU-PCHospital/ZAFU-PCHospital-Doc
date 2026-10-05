@@ -7,3 +7,6 @@ title = "ZAFU-PCHospital-Doc"
 [output.html]
 smart-punctuation = true
 git-repository-url = "https://github.com/ZAFU-PCHospital/ZAFU-PCHospital-Doc"
+preferred-dark-theme = "coal"
+additional-css = ["theme/pc-hospital.css"]
+additional-js = ["theme/pc-hospital.js"]
