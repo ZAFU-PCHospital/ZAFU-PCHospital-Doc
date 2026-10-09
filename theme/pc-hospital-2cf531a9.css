@@ -1,0 +1,391 @@
+/* 配色与 zafu-pchospital-web/src/app/globals.css 保持一致。
+   独立文档站使用本地字体回退；官网构建时另外注入 Archivo 字体。 */
+
+:root {
+  --sidebar-target-width: 320px;
+  --content-max-width: 860px;
+  --menu-bar-height: 56px;
+  --page-padding: clamp(20px, 4.2vw, 64px);
+  --pc-font-sans:
+    "Archivo", "PingFang SC", "HarmonyOS Sans SC", "MiSans", "Microsoft YaHei", "Hiragino Sans GB",
+    "Noto Sans SC", system-ui, sans-serif;
+  --pc-font-latin: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --pc-radius: 2px;
+  --pc-radius-mid: 4px;
+  --pc-ease: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.light,
+.rust {
+  --pc-bg: #f5f5f2;
+  --pc-bg-deep: #edece7;
+  --pc-surface-1: #ffffff;
+  --pc-surface-2: #efeee9;
+  --pc-line: #d8d8d4;
+  --pc-line-soft: #e6e6e1;
+  --pc-line-strong: #8a8a85;
+  --pc-ink: #171717;
+  --pc-ink-2: #3d3d3b;
+  --pc-ink-3: #5f5f5d;
+  --pc-ink-4: #70706e;
+  --pc-accent: #2457ff;
+  --pc-accent-deep: #1c44d6;
+  --pc-accent-on: #ffffff;
+  --pc-accent-wash: rgb(36 87 255 / 0.07);
+  --pc-accent-line: rgb(36 87 255 / 0.32);
+  --bg: var(--pc-bg);
+  --fg: var(--pc-ink-2);
+  --sidebar-bg: var(--pc-bg-deep);
+  --sidebar-fg: var(--pc-ink-2);
+  --sidebar-non-existant: var(--pc-ink-4);
+  --sidebar-active: var(--pc-accent);
+  --sidebar-spacer: var(--pc-line-soft);
+  --scrollbar: var(--pc-line-strong);
+  --icons: var(--pc-ink-3);
+  --icons-hover: var(--pc-accent);
+  --links: var(--pc-accent-deep);
+  --inline-code-color: var(--pc-accent-deep);
+  --theme-popup-bg: var(--pc-surface-1);
+  --theme-popup-border: var(--pc-line-strong);
+  --theme-hover: var(--pc-accent-wash);
+  --quote-bg: var(--pc-accent-wash);
+  --quote-border: var(--pc-accent);
+  --warning-border: var(--pc-accent);
+  --table-border-color: var(--pc-line);
+  --table-header-bg: var(--pc-surface-2);
+  --table-alternate-bg: var(--pc-bg-deep);
+  --searchbar-border-color: var(--pc-line-strong);
+  --searchbar-bg: var(--pc-surface-1);
+  --searchbar-fg: var(--pc-ink);
+  --searchbar-shadow-color: transparent;
+  --searchresults-header-fg: var(--pc-ink-3);
+  --searchresults-border-color: var(--pc-line);
+  --searchresults-li-bg: var(--pc-accent-wash);
+  --search-mark-bg: var(--pc-accent-line);
+  --sidebar-header-border-color: var(--pc-accent);
+  --blockquote-note-color: var(--pc-accent-deep);
+  --blockquote-tip-color: var(--pc-accent-deep);
+  --blockquote-important-color: var(--pc-accent-deep);
+  --blockquote-warning-color: var(--pc-accent-deep);
+  --blockquote-caution-color: var(--pc-accent-deep);
+  --color-scheme: light;
+}
+
+.coal,
+.navy,
+.ayu {
+  --pc-bg: oklch(14.5% 0.006 95);
+  --pc-bg-deep: oklch(11.5% 0.006 95);
+  --pc-surface-1: oklch(18% 0.006 95);
+  --pc-surface-2: oklch(22% 0.007 95);
+  --pc-line: oklch(31% 0.008 95);
+  --pc-line-soft: oklch(23% 0.007 95);
+  --pc-line-strong: oklch(52% 0.009 95);
+  --pc-ink: oklch(96% 0.008 95);
+  --pc-ink-2: oklch(82% 0.009 95);
+  --pc-ink-3: oklch(68% 0.009 95);
+  --pc-ink-4: oklch(60% 0.009 95);
+  --pc-accent: oklch(85% 0.175 99);
+  --pc-accent-deep: oklch(70% 0.155 97);
+  --pc-accent-on: oklch(17% 0.03 99);
+  --pc-accent-wash: oklch(85% 0.175 99 / 0.1);
+  --pc-accent-line: oklch(85% 0.175 99 / 0.34);
+  --bg: var(--pc-bg);
+  --fg: var(--pc-ink-2);
+  --sidebar-bg: var(--pc-bg-deep);
+  --sidebar-fg: var(--pc-ink-2);
+  --sidebar-non-existant: var(--pc-ink-4);
+  --sidebar-active: var(--pc-accent);
+  --sidebar-spacer: var(--pc-line-soft);
+  --scrollbar: var(--pc-line-strong);
+  --icons: var(--pc-ink-3);
+  --icons-hover: var(--pc-accent);
+  --links: var(--pc-accent);
+  --inline-code-color: var(--pc-accent);
+  --theme-popup-bg: var(--pc-surface-1);
+  --theme-popup-border: var(--pc-line-strong);
+  --theme-hover: var(--pc-accent-wash);
+  --quote-bg: var(--pc-accent-wash);
+  --quote-border: var(--pc-accent);
+  --warning-border: var(--pc-accent);
+  --table-border-color: var(--pc-line);
+  --table-header-bg: var(--pc-surface-2);
+  --table-alternate-bg: var(--pc-bg-deep);
+  --searchbar-border-color: var(--pc-line-strong);
+  --searchbar-bg: var(--pc-surface-1);
+  --searchbar-fg: var(--pc-ink);
+  --searchbar-shadow-color: transparent;
+  --searchresults-header-fg: var(--pc-ink-3);
+  --searchresults-border-color: var(--pc-line);
+  --searchresults-li-bg: var(--pc-accent-wash);
+  --search-mark-bg: var(--pc-accent-line);
+  --sidebar-header-border-color: var(--pc-accent);
+  --blockquote-note-color: var(--pc-accent);
+  --blockquote-tip-color: var(--pc-accent);
+  --blockquote-important-color: var(--pc-accent);
+  --blockquote-warning-color: var(--pc-accent);
+  --blockquote-caution-color: var(--pc-accent);
+  --color-scheme: dark;
+}
+
+html {
+  background: var(--pc-bg);
+  scrollbar-color: var(--pc-line-strong) transparent;
+}
+
+body {
+  font-family: var(--pc-font-sans);
+  font-size: 16px;
+  line-height: 1.75;
+  letter-spacing: 0.006em;
+}
+
+body,
+.sidebar,
+.menu-bar,
+.theme-popup,
+#mdbook-searchbar {
+  transition:
+    color 180ms var(--pc-ease),
+    background-color 180ms var(--pc-ease),
+    border-color 180ms var(--pc-ease);
+}
+
+::selection {
+  color: var(--pc-accent-on);
+  background: var(--pc-accent);
+}
+
+.content main {
+  padding-block: clamp(48px, 9vh, 96px) 96px;
+}
+
+.content p,
+.content ol,
+.content ul {
+  line-height: 1.75;
+}
+
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
+  color: var(--pc-ink);
+  font-family: var(--pc-font-latin);
+  font-stretch: 112%;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+.content h1 {
+  margin-block: 0 48px;
+  padding-block-end: 24px;
+  border-block-end: 1px solid var(--pc-line);
+  font-size: clamp(2.25rem, 5vw, 4rem);
+  font-weight: 850;
+  letter-spacing: -0.025em;
+}
+
+.content h2 {
+  margin-block-start: 56px;
+  font-size: clamp(1.6rem, 3vw, 2.25rem);
+  font-weight: 780;
+  letter-spacing: -0.018em;
+}
+
+.content h3 {
+  margin-block-start: 40px;
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-weight: 720;
+}
+
+.content a:link,
+.content a:visited {
+  color: var(--links);
+  text-decoration-color: var(--pc-accent-line);
+  text-underline-offset: 0.2em;
+}
+
+.content a:hover {
+  text-decoration-thickness: 2px;
+}
+
+.content img {
+  border: 1px solid var(--pc-line);
+  border-radius: var(--pc-radius-mid);
+}
+
+.content pre {
+  border: 1px solid var(--pc-line);
+  border-radius: var(--pc-radius-mid);
+  background: var(--pc-surface-1);
+}
+
+.content :not(pre) > code {
+  padding: 0.12em 0.35em;
+  border: 1px solid var(--pc-accent-line);
+  border-radius: var(--pc-radius);
+  background: var(--pc-accent-wash);
+}
+
+.content blockquote {
+  border-inline-start: 2px solid var(--pc-accent);
+  border-radius: 0 var(--pc-radius) var(--pc-radius) 0;
+  color: var(--pc-ink-2);
+  background: var(--pc-accent-wash);
+}
+
+.content table {
+  border-collapse: collapse;
+}
+
+.content table th,
+.content table td {
+  border-color: var(--pc-line);
+}
+
+.sidebar {
+  border-inline-end: 1px solid var(--pc-line);
+}
+
+.sidebar .sidebar-scrollbox {
+  padding-block: 32px;
+}
+
+.chapter li a {
+  border-inline-start: 2px solid transparent;
+  border-radius: 0;
+  transition:
+    color 140ms var(--pc-ease),
+    border-color 140ms var(--pc-ease),
+    background-color 140ms var(--pc-ease);
+}
+
+.chapter li a:hover {
+  color: var(--pc-accent);
+  background: var(--pc-accent-wash);
+}
+
+.chapter li a.active {
+  border-inline-start-color: var(--pc-accent);
+  color: var(--pc-accent);
+  font-weight: 700;
+  background: var(--pc-accent-wash);
+}
+
+#mdbook-menu-bar {
+  padding-inline: 12px;
+  border-block-end: 1px solid var(--pc-line-soft);
+  background: color-mix(in oklab, var(--pc-bg) 92%, transparent);
+  box-shadow: none;
+  backdrop-filter: blur(12px);
+}
+
+#mdbook-menu-bar.bordered {
+  border-block-end-color: var(--pc-line);
+}
+
+.pc-hospital-return {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  margin-inline-end: 8px;
+  padding-inline: 12px;
+  border: 1px solid var(--pc-line-strong);
+  border-radius: var(--pc-radius);
+  color: var(--pc-ink);
+  font-family: var(--pc-font-latin);
+  font-size: 0.75rem;
+  font-stretch: 116%;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition:
+    color 140ms var(--pc-ease),
+    border-color 140ms var(--pc-ease),
+    background-color 140ms var(--pc-ease);
+}
+
+.pc-hospital-return:hover {
+  border-color: var(--pc-accent);
+  color: var(--pc-accent-on);
+  background: var(--pc-accent);
+}
+
+.icon-button:focus-visible,
+.pc-hospital-return:focus-visible,
+.content a:focus-visible,
+#mdbook-searchbar:focus-visible {
+  outline: 2px solid var(--pc-accent);
+  outline-offset: 2px;
+}
+
+#mdbook-searchbar {
+  min-height: 44px;
+  border-radius: var(--pc-radius);
+  box-shadow: none;
+}
+
+#mdbook-searchbar:focus,
+#mdbook-searchbar.active {
+  border-color: var(--pc-accent);
+  box-shadow: none;
+}
+
+.theme-popup {
+  border-radius: var(--pc-radius-mid);
+  box-shadow: none;
+}
+
+#mdbook-theme-rust,
+#mdbook-theme-navy,
+#mdbook-theme-ayu {
+  display: none;
+}
+
+.nav-chapters:hover,
+.mobile-nav-chapters:hover,
+.menu-bar .icon-button:hover,
+.menu-bar .fa-svg:hover {
+  color: var(--pc-accent);
+}
+
+@media (max-width: 759px) {
+  :root {
+    --page-padding: 20px;
+    --menu-bar-height: 56px;
+  }
+
+  .content main {
+    padding-block: 40px 72px;
+  }
+
+  .content h1 {
+    margin-block-end: 32px;
+    padding-block-end: 20px;
+  }
+
+  .pc-hospital-return span:last-child {
+    display: none;
+  }
+
+  .pc-hospital-return {
+    width: 40px;
+    justify-content: center;
+    padding-inline: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
