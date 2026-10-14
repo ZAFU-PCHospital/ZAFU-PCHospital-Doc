@@ -179,26 +179,39 @@ body,
   text-wrap: balance;
 }
 
+/* mdBook 默认根字号为 10px，以下 rem 值按此换算。 */
 .content h1 {
   margin-block: 0 48px;
   padding-block-end: 24px;
   border-block-end: 1px solid var(--pc-line);
-  font-size: clamp(2.25rem, 5vw, 4rem);
+  font-size: clamp(3.6rem, 5vw, 6.4rem);
   font-weight: 850;
   letter-spacing: -0.025em;
 }
 
 .content h2 {
   margin-block-start: 56px;
-  font-size: clamp(1.6rem, 3vw, 2.25rem);
+  font-size: clamp(2.56rem, 3vw, 3.6rem);
   font-weight: 780;
   letter-spacing: -0.018em;
 }
 
 .content h3 {
   margin-block-start: 40px;
-  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-size: clamp(2rem, 2vw, 2.4rem);
   font-weight: 720;
+}
+
+.content h4 {
+  font-size: 1.8rem;
+}
+
+.content h5 {
+  font-size: 1.7rem;
+}
+
+.content h6 {
+  font-size: 1.6rem;
 }
 
 .content a:link,
