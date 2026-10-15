@@ -64,3 +64,4 @@
     - [开机进临时桌面](Manual/KnowledgeBase/WindowsUserProfileService.md)
     - [暗影精灵开机风扇不转](Manual/KnowledgeBase/OMENFanStop.md)
     - [AutoCAD 卸载](Manual/KnowledgeBase/CADUninstall.md)
+    - [微软 VS 运行库下载安装](Manual/KnowledgeBase/VCInstall.md)
