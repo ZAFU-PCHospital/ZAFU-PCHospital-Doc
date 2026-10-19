@@ -65,3 +65,4 @@
     - [暗影精灵开机风扇不转](Manual/KnowledgeBase/OMENFanStop.md)
     - [AutoCAD 卸载](Manual/KnowledgeBase/CADUninstall.md)
     - [微软 VS 运行库下载安装](Manual/KnowledgeBase/VCInstall.md)
+    - [控制台卡住与快速编辑模式](Manual/KnowledgeBase/CMDBlock.md)
