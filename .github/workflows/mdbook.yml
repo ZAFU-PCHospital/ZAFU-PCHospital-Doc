@@ -18,10 +18,28 @@ jobs:
       - name: Setup mdBook
         uses: peaceiris/actions-mdbook@v2
         with:
-          mdbook-version: 'latest'
+          mdbook-version: '0.5.4'
 
       - name: Run mdbook
         run: mdbook build
+
+      - name: Verify Mermaid assets
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          # toc.html is an embedded sidebar fragment, not a full page.
+          pages = [page for page in Path("book").rglob("*.html") if page != Path("book/toc.html")]
+          assert pages, "No HTML pages were generated"
+          for page in pages:
+              scripts = re.findall(r'<script src="([^"]*mermaid[^"]*\.js)"', page.read_text(encoding="utf-8"))
+              assert len(scripts) == 2, f"Missing Mermaid scripts in {page}"
+              for script in scripts:
+                  asset = page.parent / script
+                  assert asset.is_file() and asset.stat().st_size > 0, f"Missing asset: {asset}"
+          print(f"Mermaid assets verified in {len(pages)} HTML pages")
+          PY
 
       - name: Upload book
         uses: actions/upload-artifact@v4

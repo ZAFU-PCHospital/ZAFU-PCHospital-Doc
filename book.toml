@@ -9,4 +9,4 @@ smart-punctuation = true
 git-repository-url = "https://github.com/ZAFU-PCHospital/ZAFU-PCHospital-Doc"
 preferred-dark-theme = "coal"
 additional-css = ["theme/pc-hospital.css"]
-additional-js = ["theme/pc-hospital.js"]
+additional-js = ["theme/pc-hospital.js", "theme/mermaid-12.2.0.min.js", "theme/mermaid-init.js"]

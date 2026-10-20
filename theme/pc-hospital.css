@@ -368,6 +368,17 @@ body,
   color: var(--pc-accent);
 }
 
+.content .mermaid {
+  margin-block: 1em;
+  overflow-x: auto;
+  text-align: center;
+}
+
+.content .mermaid > svg {
+  max-width: none;
+  height: auto;
+}
+
 @media (max-width: 759px) {
   :root {
     --page-padding: 20px;
