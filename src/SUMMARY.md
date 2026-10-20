@@ -66,3 +66,4 @@
     - [AutoCAD 卸载](Manual/KnowledgeBase/CADUninstall.md)
     - [微软 VS 运行库下载安装](Manual/KnowledgeBase/VCInstall.md)
     - [控制台卡住与快速编辑模式](Manual/KnowledgeBase/CMDBlock.md)
+    - [PowerShell 7 启动即闪退](Manual/KnowledgeBase/Pwsh7StartupCrash.md)
