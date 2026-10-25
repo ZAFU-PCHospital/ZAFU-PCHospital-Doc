@@ -54,6 +54,8 @@
 
 - [维修守则](Manual/Regulations.md)
 
+- [电医精神](Manual/Spirit.md)
+
 - [维修流程](Manual/Workflow.md)
 
 - [品牌官方售后网站](Manual/OfficialSupport.md)
