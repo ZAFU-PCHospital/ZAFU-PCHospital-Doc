@@ -71,3 +71,7 @@
     - [网卡调优](Manual/KnowledgeBase/NetworkOptimize.md)
     - [PowerShell 7 启动即闪退](Manual/KnowledgeBase/Pwsh7StartupCrash.md)
     - [机械硬盘异响但是扫描正常](Manual/KnowledgeBase/HDDKnocking.md)
+
+# 参与维护
+
+- [电脑医院官网维护教程——以 Qoder 为例](Contributing/WebsiteMaintenance.md)
