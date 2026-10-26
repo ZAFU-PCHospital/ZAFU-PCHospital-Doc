@@ -80,6 +80,12 @@ Powered by [mdbook](https://rust-lang.github.io/mdBook/)
 | 学校周边第三方维修点 | --                                                                            |
 | 知识沉淀             | 概括性经验（Main.md），历史典型案例汇总（单独分子章节），疑难杂症解决方案归档 |
 
+#### 参与维护
+
+| 章节 | 大致包含内容 |
+| --- | --- |
+| 电脑医院官网维护教程 | 以 Qoder 为例，介绍环境准备、Issue 认领、开发验证、PR 提交与评审跟进 |
+
 ### 内容规范
 
 内容清晰明了，最好附有操作截图，相关内容以合适的命名方式命名并放在目录里的 assets 文件夹下，参考`src/ZAFUNetWork/assets`
@@ -94,6 +100,11 @@ Powered by [mdbook](https://rust-lang.github.io/mdBook/)
 src/
 ├── Intro.md
 ├── SUMMARY.md
+│
+├── Contributing/                     # 参与维护
+│   ├── WebsiteMaintenance.md         # 电脑医院官网维护教程
+│   └── assets/
+│       └── website-maintenance/      # 本教程截图
 │
 ├── Basics/                           # 一些计算机基础
 │   ├── README.md                     # 章节索引（可选）
