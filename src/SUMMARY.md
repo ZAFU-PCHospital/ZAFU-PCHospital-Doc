@@ -6,7 +6,7 @@
 
 - [一些计算机基础](<>)
     - [操作系统与文件系统](Basics/OS.md)
-    - [硬件组成简介](<>)
+    - [硬件组成简介](Basics/Hardware.md)
     - [常用快捷键与技巧](Basics/Shortcuts.md)
 
 - [校园网](<>)
