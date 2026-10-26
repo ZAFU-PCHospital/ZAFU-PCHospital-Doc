@@ -70,6 +70,7 @@
     - [控制台卡住与快速编辑模式](Manual/KnowledgeBase/CMDBlock.md)
     - [网卡调优](Manual/KnowledgeBase/NetworkOptimize.md)
     - [PowerShell 7 启动即闪退](Manual/KnowledgeBase/Pwsh7StartupCrash.md)
+    - [USB 接针类型](Manual/KnowledgeBase/USBPinOut.md)
     - [机械硬盘异响但是扫描正常](Manual/KnowledgeBase/HDDKnocking.md)
 
 # 参与维护
