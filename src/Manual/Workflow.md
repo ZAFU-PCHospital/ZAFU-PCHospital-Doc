@@ -13,36 +13,38 @@
 1. 到达现场，确定好工作位置
 2. 登录[电脑医院官网](https://pczafu.cn/member/repair-activities)进入维修活动页面
 
-   <img src="assets/web_activity_workflow_1.jpg" alt="进入官网" width="320">
+    <img src="assets/web_activity_workflow_1.jpg" alt="进入官网" width="320">
 
-   <img src="assets/web_activity_workflow_2.jpg" alt="进入索引后进行登录" width="320">
+    <img src="assets/web_activity_workflow_2.jpg" alt="进入索引后进行登录" width="320">
 
-   <img src="assets/web_activity_workflow_3.jpg" alt="进入维修活动页面" width="320">
+    <img src="assets/web_activity_workflow_3.jpg" alt="进入维修活动页面" width="320">
 
-   <img src="assets/web_activity_workflow_4.jpg" alt="进入正在进行的活动的工作台" width="320">
+    <img src="assets/web_activity_workflow_4.jpg" alt="进入正在进行的活动的工作台" width="320">
 
-   正在进行的活动会一直在顶上，有高亮色
+    正在进行的活动会一直在顶上，有高亮色
+
 3. 出勤正在进行的活动
 
-   <img src="assets/web_activity_workflow_5.jpg" alt="出勤" width="320">
+    <img src="assets/web_activity_workflow_5.jpg" alt="出勤" width="320">
 
-   <img src="assets/web_activity_workflow_6.jpg" alt="成功出勤" width="320">
+    <img src="assets/web_activity_workflow_6.jpg" alt="成功出勤" width="320">
 
 4. 明确自己能进行的维修，在**排队中**队列中按照数字顺序从上到下选择自己能处理的电脑进行接待
 
-   <img src="assets/web_activity_workflow_7.jpg" alt="接待" width="320">
+    <img src="assets/web_activity_workflow_7.jpg" alt="接待" width="320">
 
-   例如，截图中接待的是第一位客户，如果不敢接待第一位客户的机型或者其故障类型不在自己能力范围内，可以选择接待第二位客户，或者第三位客户，依次类推。优先接待靠前的客户
-   如果误触接待了不在自己能力范围内的客户，可以点击旁边的**撤销接待**
+    例如，截图中接待的是第一位客户，如果不敢接待第一位客户的机型或者其故障类型不在自己能力范围内，可以选择接待第二位客户，或者第三位客户，依次类推。优先接待靠前的客户
+    如果误触接待了不在自己能力范围内的客户，可以点击旁边的**撤销接待**
+
 5. 点击接待后进行叫号，可以大喊已接待区显示的客户手机尾号找到客户
 6. 适当进行免责说明，进行维修
 7. 维修完成后进行维修记录填写
 
-   <img src="assets/web_activity_workflow_8.jpg" alt="进行记录填写" width="320">
+    <img src="assets/web_activity_workflow_8.jpg" alt="进行记录填写" width="320">
 
 8. 如果维修过程中有协作者一起完成，可以填写协作者姓名/昵称，支持模糊搜索
 
-   <img src="assets/web_activity_workflow_9.jpg" alt="填写协作者" width="320">
+    <img src="assets/web_activity_workflow_9.jpg" alt="填写协作者" width="320">
 
 9. 填写完成后点击提交审核
 10. 自动返回**排队中页面**接待下一单
@@ -66,6 +68,13 @@
 4. 核对来签到的客户信息（手机尾号、姓名、故障类型），对客户进行签到。如果客户在官网上登记的故障类型和现场描述不符，请在签到时更改故障类型
 5. 维护现场情况，对现场成员进行指导，确保维修活动顺利进行
 
+> [!NOTE]
+> 现场管理员需要在白板或者希沃上写明
+>
+> 1. 客户记得签到、找谁签到
+> 2. 欢迎赞助
+> 3. 收款码，用于赞助、硅脂相变片收款
+
 ### 其他情况填写维修单流程
 
 如果自己有私下帮助客户完成维修，可以单独填写维修单。后台会审核
@@ -73,7 +82,7 @@
 1. 登录电脑医院官网后台，过程不赘述
 2. 在个人后台中点击页面最下方的加号
 
-   <img src="assets/web_normal_workflow_1.jpg" alt="点击加号" width="320">
+    <img src="assets/web_normal_workflow_1.jpg" alt="点击加号" width="320">
 
 3. 维修完成后根据实际情况填写维修单，填写完成后点击提交审核
 
