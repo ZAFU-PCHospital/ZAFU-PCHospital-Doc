@@ -1,0 +1,310 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans-CN" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>电脑医院官网维护教程——以 Qoder 为例 - ZAFU-PCHospital-Doc</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="../favicon-8114d1fc.png">
+        <link rel="stylesheet" href="../css/variables-8adf115d.css">
+        <link rel="stylesheet" href="../css/general-e96d0476.css">
+        <link rel="stylesheet" href="../css/chrome-d279d366.css">
+        <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/pc-hospital-75c4c6a1.css">
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "coal";
+            window.path_to_searchindex_js = "../searchindex-4d19d483.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc-0b647abd.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">ZAFU-PCHospital-Doc</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/ZAFU-PCHospital/ZAFU-PCHospital-Doc" title="Git repository" aria-label="Git repository">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="电脑医院官网维护教程以-qoder-为例"><a class="header" href="#电脑医院官网维护教程以-qoder-为例">电脑医院官网维护教程——以 Qoder 为例</a></h1>
+<h2 id="一引言"><a class="header" href="#一引言">一、引言</a></h2>
+<p>平时用豆包这类聊天工具，如果你说“我想做一个贪吃蛇小程序”，它通常会给出一段代码。接下来还得自己复制到编辑器里，安装依赖、运行，遇到报错再回去问。</p>
+<p>Agent 工具给大模型提供了“手和脚”，让它可以直接读写文件、运行命令、编译和测试代码。有些工具还能打开浏览器、查看截图，帮你检查页面效果。Qoder、WorkBuddy、Claude Code 等都可以做这些事。</p>
+<p>本文以 Windows 下的 Qoder CN 桌面版为例，介绍怎么用 Agent 协助维护电脑医院官网。没有开发经验也可以从小任务开始，不过改完以后还是要自己看看效果，不能只听模型说“做好了”。</p>
+<h2 id="二下载-qoder-与初始化"><a class="header" href="#二下载-qoder-与初始化">二、下载 Qoder 与初始化</a></h2>
+<h3 id="下载安装"><a class="header" href="#下载安装">下载安装</a></h3>
+<p>打开 <a href="https://qoder.cn/download">Qoder CN 下载页</a>，选择适合自己系统的桌面版。本文用的是桌面版，不是 IDE 或 CLI，下载时看一下名称。</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="assets/website-maintenance/qoder-website.png" alt="Qoder CN 官网与下载入口"><span class="img-wrapper"><img src="assets/website-maintenance/qoder-website.png" alt="Qoder CN 官网与下载入口"></span></label></p>
+<p>下载后双击安装包，按提示安装，随后打开 Qoder，注册并登录。</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="assets/website-maintenance/qoder-login.png" alt="Qoder 登录页面"><span class="img-wrapper"><img src="assets/website-maintenance/qoder-login.png" alt="Qoder 登录页面"></span></label></p>
+<p>下面就是首页了，输入框右下角可以选择模型，下方可以选择工作区。</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="assets/website-maintenance/qoder-home.png" alt="Qoder 桌面版首页"><span class="img-wrapper"><img src="assets/website-maintenance/qoder-home.png" alt="Qoder 桌面版首页"></span></label></p>
+<h3 id="选择模型"><a class="header" href="#选择模型">选择模型</a></h3>
+<p>截图中用的是 DeepSeek-Flash，也可以换成自己习惯的模型。部分模型会消耗 Credits，选的时候看一下界面上的消耗说明，赠送活动和价格以当时显示的为准。</p>
+<p>模型管理里可以调整上下文窗口，也就是模型一次能处理多少内容。刚开始保留默认值即可，不必一上来就拉到 1M；窗口大一些能容纳更多内容，但不等于模型会一直记得之前说过的话。</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="assets/website-maintenance/qoder-model-settings.png" alt="Qoder 模型与上下文窗口设置"><span class="img-wrapper"><img src="assets/website-maintenance/qoder-model-settings.png" alt="Qoder 模型与上下文窗口设置"></span></label></p>
+<h2 id="三环境配置"><a class="header" href="#三环境配置">三、环境配置</a></h2>
+<h3 id="github-账号与工具"><a class="header" href="#github-账号与工具">GitHub 账号与工具</a></h3>
+<p>首先需要一个 GitHub 账号，没有的话可以在 <a href="https://github.com/signup">GitHub 注册页</a>注册。后面会用到两个词：Issue 是记录问题和需求的地方，PR（Pull Request）则是把修改交给维护者审查的请求。</p>
+<p>接着安装 Git 和 GitHub CLI。前者用来管理代码版本，后者的命令叫 <code>gh</code>，可以用来操作 GitHub。打开 Qoder，输入：</p>
+<pre><code class="language-text">帮我检查电脑上有没有 Git 和 GitHub CLI，没有的话从官方渠道安装，再带我完成 GitHub 登录，确认登录的是我的账号。
+</code></pre>
+<p>按提示在浏览器中授权即可。配置好后，Agent 就能用你的账号协助处理 Issue、提交 PR，能做哪些操作取决于账号本身的权限。其他工具如果有官方 GitHub 连接器，也可以直接使用。</p>
+<h3 id="创建工作区"><a class="header" href="#创建工作区">创建工作区</a></h3>
+<p>在准备存放代码的位置新建一个文件夹，例如 <code>E:\projects\pchospital</code>，文件夹名尽量用英文。</p>
+<p>打开 Qoder，在输入框下方点击工作区，选择“新建工作区”，添加刚才的文件夹。</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="assets/website-maintenance/qoder-workspace.png" alt="Qoder 工作区选择与新建入口"><span class="img-wrapper"><img src="assets/website-maintenance/qoder-workspace.png" alt="Qoder 工作区选择与新建入口"></span></label></p>
+<p>后续代码会放在这里，每次开始任务前看一眼有没有选错工作区。</p>
+<h3 id="下载代码"><a class="header" href="#下载代码">下载代码</a></h3>
+<p>官网代码在 <a href="https://github.com/ZAFU-PCHospital/zafu-pchospital-web">zafu-pchospital-web</a>，本教程所在的<a href="https://github.com/ZAFU-PCHospital/ZAFU-PCHospital-Doc">文档仓库</a>是另一个仓库，别弄混了。</p>
+<ol>
+<li>打开官网代码仓库，点击 <strong>Fork</strong>，在自己的账号下复制一份仓库。</li>
+<li>把自己的 Fork 地址发给 Qoder，让它克隆到工作区，并把组织仓库设为 <code>upstream</code>，以后用来同步上游更新。</li>
+<li>让它先读 <a href="https://github.com/ZAFU-PCHospital/zafu-pchospital-web/blob/main/README.md">README</a>、<a href="https://github.com/ZAFU-PCHospital/zafu-pchospital-web/blob/main/CONTRIBUTING.md">贡献指南</a>、<a href="https://github.com/ZAFU-PCHospital/zafu-pchospital-web/blob/main/AGENTS.md">AGENTS.md</a> 和<a href="https://github.com/ZAFU-PCHospital/zafu-pchospital-web/blob/main/docs/design-system.md">设计系统</a>，按里面的要求配置环境。</li>
+</ol>
+<p>运行官网还需要 Node.js、pnpm 和本地数据库，版本和安装步骤按仓库文档来。Windows 用户可以把 <a href="https://github.com/ZAFU-PCHospital/zafu-pchospital-web/blob/main/docs/database-windows.md">Windows 环境指南</a>发给 Agent，让它带着配置；如果只是改文档，就不用搭数据库。</p>
+<p>本地网站没有通用的默认账号密码，首次初始化账号需要按贡献指南联系维护者。</p>
+<h2 id="四找一个可以落地的-issue"><a class="header" href="#四找一个可以落地的-issue">四、找一个可以落地的 Issue</a></h2>
+<p>打开官网的 <a href="https://github.com/ZAFU-PCHospital/zafu-pchospital-web/issues">Issue 页面</a>，找一个还没人处理的问题。新手建议先选文案、文档，或者能复现的小 Bug，别一开始就接范围很大的任务。</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="assets/website-maintenance/github-issues.png" alt="Issue 列表中的标签与负责人位置"><span class="img-wrapper"><img src="assets/website-maintenance/github-issues.png" alt="Issue 列表中的标签与负责人位置"></span></label></p>
+<p>图中红框位置如果有头像，通常说明已经有人负责。没有头像也要看看评论区和<a href="https://github.com/ZAFU-PCHospital/zafu-pchospital-web/pulls">已有 PR</a>，有些人已经在做，只是还没分配负责人。</p>
+<p>带 <code>question</code> 标签的 Issue 可能还在讨论，先问清楚要怎么改。正文和评论都读一下，有时后续讨论已经改了原来的要求。</p>
+<p>决定认领后，可以在评论区说一声“我想认领这个问题，打算这样处理……”，再留意维护者的回复。留言不会自动把你设为负责人。</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="assets/website-maintenance/github-issue-claim.png" alt="Issue 评论区的认领留言示例"><span class="img-wrapper"><img src="assets/website-maintenance/github-issue-claim.png" alt="Issue 评论区的认领留言示例"></span></label></p>
+<p>如果拿不准难度，可以先把 Issue 发给 Agent，让它只看代码，解释要改哪里，暂时别动手。</p>
+<h2 id="五开工"><a class="header" href="#五开工">五、开工</a></h2>
+<p>在 Qoder 中选好工作区，把 Issue 链接发给它。下面这段可以直接复用，把链接换成自己的任务：</p>
+<pre><code class="language-text">帮我解决这个 Issue：&lt;粘贴 Issue 链接&gt;。
+
+先读正文、评论和关联 PR，再读仓库的贡献指南、AGENTS.md、Git 工作流、设计系统，以及这次修改涉及的其他文档。检查已有改动，在最新 upstream/main 上新建符合仓库命名要求的分支，不要直接改 main。
+
+先说说问题出在哪里、准备怎么改。需求或业务逻辑不清楚就先问我，只处理这个 Issue。
+
+改完后按仓库要求做必要检查，列出通过、失败和没跑的项目。有界面变化就附上相关页面的代表性截图，不用重复跑无关测试。
+
+把结果和 PR 标题、正文先给我看，等我确认后再提交、推送并向上游提 PR。
+</code></pre>
+<p>官网仓库的分支名用 <code>fix/member-search</code>、<code>docs/update-guide</code> 这样的格式，描述部分用小写英文和连字符。提交信息如 <code>fix(member): 修正成员搜索范围</code>，具体可以看 <a href="https://github.com/ZAFU-PCHospital/zafu-pchospital-web/blob/main/docs/git-workflow.md">Git 工作流</a>。</p>
+<h3 id="中途有问题怎么办"><a class="header" href="#中途有问题怎么办">中途有问题怎么办</a></h3>
+<p>Agent 可能会问你具体要怎么做。比如下面这个例子，Issue 写的是“成员搜索”，但网站里有好几个搜索入口，需要先确认改哪一个。</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="assets/website-maintenance/qoder-issue-clarification.png" alt="Agent 询问 Issue 对应的搜索入口"><span class="img-wrapper"><img src="assets/website-maintenance/qoder-issue-clarification.png" alt="Agent 询问 Issue 对应的搜索入口"></span></label></p>
+<p>这张图主要看提问方式，图中还在 <code>main</code> 分支，实际修改前记得先建工作分支。</p>
+<p>按自己对业务的理解回答即可。拿不准的话，在维护群或 Issue 评论区问一下，再把讨论结果告诉 Agent。模型给的推荐选项也可能理解错，不用照单全收。</p>
+<h3 id="改完后检查一下"><a class="header" href="#改完后检查一下">改完后检查一下</a></h3>
+<p>先看 Agent 改了哪些文件，再自己试试原来的问题还在不在。改文档就照着步骤读一遍，改界面就打开对应页面操作一下。</p>
+<p>检查结果也要看，特别是失败项和没跑的项目。涉及数据库测试时，要用仓库要求的独立测试库，别拿日常开发库或生产库来跑。</p>
+<p>确认后再让 Agent 提 PR，目标选组织仓库的 <code>main</code>。正文写清楚改了什么、关联哪个 Issue、做了哪些检查。有界面变化再放截图，发布前看一下图片和日志里有没有密码、令牌或个人资料。</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="assets/website-maintenance/qoder-pr-report.png" alt="Agent 的完成报告与 PR 链接示例"><span class="img-wrapper"><img src="assets/website-maintenance/qoder-pr-report.png" alt="Agent 的完成报告与 PR 链接示例"></span></label></p>
+<p>比如这张图，虽然已经有了 PR 链接，但报告里还写着数据库环境没覆盖、CI 等待维护者批准，这些都需要继续跟进。</p>
+<h3 id="跟进-pr"><a class="header" href="#跟进-pr">跟进 PR</a></h3>
+<p>提交后记得关注 GitHub 消息。维护者会审查代码，有问题会在 PR 中留言，也可能在群里通知你。</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="assets/website-maintenance/github-pr-review.png" alt="维护者在 PR 评论区给出的修改建议"><span class="img-wrapper"><img src="assets/website-maintenance/github-pr-review.png" alt="维护者在 PR 评论区给出的修改建议"></span></label></p>
+<p>看懂意见后，把需要修改的地方发给 Agent。阻塞项要先修复，非阻塞建议可以和维护者讨论。修完继续推送到原来的工作分支，PR 会自动更新，一般不用重新开一个。</p>
+<p>PR 显示 <strong>Merged</strong>，就说明代码已经合入主线了。再看看关联 Issue 是否已经关闭，是否还要补充说明。线上什么时候更新，则看后续的发布安排。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../Manual/KnowledgeBase/HDDKnocking.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../Manual/KnowledgeBase/HDDKnocking.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr-ef4e11c1.min.js"></script>
+        <script src="../mark-09e88c2c.min.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
+
+        <script src="../clipboard-1626706a.min.js"></script>
+        <script src="../highlight-abc7f01d.js"></script>
+        <script src="../book-609e4cb8.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../theme/pc-hospital-0f640e68.js"></script>
+        <script src="../theme/mermaid-12-a8a6a6f8.2.0.min.js"></script>
+        <script src="../theme/mermaid-init-b689ef3d.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

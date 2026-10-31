@@ -1,0 +1,599 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans-CN" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>硬件组成简介 - ZAFU-PCHospital-Doc</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="../favicon-8114d1fc.png">
+        <link rel="stylesheet" href="../css/variables-8adf115d.css">
+        <link rel="stylesheet" href="../css/general-e96d0476.css">
+        <link rel="stylesheet" href="../css/chrome-d279d366.css">
+        <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/pc-hospital-75c4c6a1.css">
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "coal";
+            window.path_to_searchindex_js = "../searchindex-4d19d483.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc-0b647abd.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">ZAFU-PCHospital-Doc</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/ZAFU-PCHospital/ZAFU-PCHospital-Doc" title="Git repository" aria-label="Git repository">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="硬件组成简介"><a class="header" href="#硬件组成简介">硬件组成简介</a></h1>
+<blockquote class="blockquote-tag blockquote-tag-warning">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Warning</p>
+<p>本文内容属于科普范畴，尽量写的简单易懂，省略了很多细节和专业术语</p>
+</blockquote>
+<p>一台电脑从外面看是一个盒子，打开以后其实就是几块各管一摊的零件</p>
+<p>了解每个零件是干什么的、彼此怎么连，装机、升级、排查故障都会轻松很多</p>
+<h2 id="电脑是怎么工作的"><a class="header" href="#电脑是怎么工作的">电脑是怎么工作的</a></h2>
+<p>先不管具体零件，电脑干活的流程大致是这样的：</p>
+<ol>
+<li>硬盘里存着程序和数据</li>
+<li>运行程序时，系统把需要的部分搬到内存里</li>
+<li>CPU 从内存里取指令、取数据，计算</li>
+<li>需要画面时，交给显卡处理，再通过接口输出到显示器</li>
+<li>键盘、鼠标等设备把你的操作送回给 CPU，开始下一轮</li>
+</ol>
+<pre><code class="language-mermaid">flowchart LR
+    HDD[("硬盘&lt;br/&gt;长期存放")] -- 加载 --&gt; RAM["内存&lt;br/&gt;临时存放"]
+    RAM &lt;--&gt; CPU["CPU&lt;br/&gt;计算"]
+    CPU &lt;--&gt; GPU["显卡&lt;br/&gt;图像处理"]
+    GPU --&gt; Monitor["显示器"]
+    Input["键盘 / 鼠标"] --&gt; CPU
+</code></pre>
+<p>这些零件之间的连接全靠主板。主板上有各种插槽和走线，可以理解为一座城市的道路系统，其他零件都是住在里面的居民</p>
+<blockquote class="blockquote-tag blockquote-tag-note">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
+<p>本文默认讨论 <strong>Windows 台式机和笔记本</strong> 使用的 x86-64 平台。手机、Mac（Apple 芯片）、开发板等把大部分零件集成在一颗芯片上，思路相似，但不在本文范围内</p>
+</blockquote>
+<h2 id="核心部件一览"><a class="header" href="#核心部件一览">核心部件一览</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>部件</th><th>简单作用</th><th>类比</th></tr>
+</thead>
+<tbody>
+<tr><td>CPU（处理器）</td><td>执行指令，负责计算和调度</td><td>大脑</td></tr>
+<tr><td>内存（RAM）</td><td>临时存放正在运行的程序和数据</td><td>工作台</td></tr>
+<tr><td>硬盘（SSD / HDD）</td><td>长期存放系统、软件和文件</td><td>仓库</td></tr>
+<tr><td>主板</td><td>连接并为各部件提供通道</td><td>骨架 + 神经</td></tr>
+<tr><td>显卡（GPU）</td><td>处理图形和并行计算</td><td>专职画图的助手</td></tr>
+<tr><td>电源（PSU）</td><td>把市电转换成各部件需要的低压直流电</td><td>心脏</td></tr>
+<tr><td>散热器</td><td>把 CPU 等发热部件的热量带走</td><td>空调</td></tr>
+<tr><td>机箱</td><td>固定、保护所有部件，规划风道</td><td>房子</td></tr>
+</tbody>
+</table>
+</div>
+<p>下面逐个说</p>
+<h2 id="cpu"><a class="header" href="#cpu">CPU</a></h2>
+<p>CPU，Central Processing Unit，中央处理器是电脑的运算核心。写的每一行代码、点的每一次鼠标，任何一个行为最后都会变成一条条指令交给它执行</p>
+<p>几个常见参数：</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>参数</th><th>含义</th></tr>
+</thead>
+<tbody>
+<tr><td>核心数 / 线程数</td><td>核心越多，能同时处理的任务越多。现在很多 CPU 线程数是核心数的两倍（超线程技术），但对于超线程 CPU 一个线程并不等于半个核心</td></tr>
+<tr><td>主频</td><td>每秒运行的时钟周期数，现代 CPU 的频率单位是 GHz，同代同架构下越高越快，不同代之间不能直接比</td></tr>
+<tr><td>缓存</td><td>CPU 内部的高速小内存，比 RAM 快得多，容量一般以 MB 计</td></tr>
+<tr><td>TDP / 功耗</td><td>粗略反映发热和供电需求</td></tr>
+<tr><td>接口（插槽）</td><td>决定能插进哪块主板</td></tr>
+</tbody>
+</table>
+</div>
+<p>目前主流的桌面 CPU 厂商是 Intel 和 AMD，两家使用的主板插槽不同，<strong>不能混用</strong></p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="assets/NTR.jpg" alt="有牛啊！"><span class="img-wrapper"><img src="assets/NTR.jpg" alt="有牛啊！"></span></label></p>
+<blockquote class="blockquote-tag blockquote-tag-tip">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p>
+<p>看性能别只看主频和核心数。同样是 4 GHz，新架构一个周期干的活比老架构多得多。想比较性能，去看对应型号的实际跑分或者评测</p>
+</blockquote>
+<h3 id="核显"><a class="header" href="#核显">核显</a></h3>
+<p>很多 CPU 里自带一块简单的显示核心，叫核显。办公、看视频、写代码足够用，打大型游戏、跑 AI 就不太行了</p>
+<p>不带核显的 CPU 必须再插一块独立显卡才有画面输出，买之前要看清楚，不然装好机发现点不亮就尴尬了</p>
+<blockquote class="blockquote-tag blockquote-tag-tip">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p>
+<p>除了核显，还有集显，集成显卡，是指显卡集成在主板上，和核显的区别是集显不在 CPU 里，而是主板芯片组里。不过现在几乎没有新家用主板带集显了，在服务器主板上还是有的</p>
+</blockquote>
+<h2 id="内存"><a class="header" href="#内存">内存</a></h2>
+<p>内存（RAM）速度很快，但<strong>断电就清空</strong>，所以只用来放正在运行的东西。内存越大，能同时开的程序越多，也越不容易因为不够用而卡顿</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>代数</th><th>常见场景</th></tr>
+</thead>
+<tbody>
+<tr><td>DDR3</td><td>较老的平台，多见于二手和低成本整机</td></tr>
+<tr><td>DDR4</td><td>主流平台</td></tr>
+<tr><td>DDR5</td><td>新平台</td></tr>
+</tbody>
+</table>
+</div>
+<blockquote class="blockquote-tag blockquote-tag-warning">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Warning</p>
+<p>不同代数的内存插槽的缺口位置不一样，<strong>物理上就插不进对方的插槽</strong>。不要硬怼！！！买内存之前先确认主板支持哪一代</p>
+</blockquote>
+<p>几个容易搞混的点：</p>
+<ul>
+<li>台式机内存条比笔记本的长，笔记本用的叫 SO-DIMM，两者不通用</li>
+<li>双通道：插两根同规格的内存条，带宽几乎翻倍，比单根大容量更划算。一般插在主板说明书推荐的槽位上，不过双通道的支持也要看主板和 CPU，<strong>不是所有平台都支持双通道</strong></li>
+<li>内存满了以后，系统会把一部分数据挪到硬盘上的页面文件里，速度会断崖式变慢，这就是内存不够时电脑变卡的原因（页面文件的事情在 <a href="OS.html#磁盘分区与盘符">操作系统与文件系统章节</a> 提过）</li>
+</ul>
+<blockquote class="blockquote-tag blockquote-tag-tip">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p>
+<p>内存频率和时序在 BIOS 里需要开启 XMP / EXPO，否则内存会按默认的低频率运行，达不到商品页写的频率，例如 6400 MHz</p>
+</blockquote>
+<h2 id="硬盘"><a class="header" href="#硬盘">硬盘</a></h2>
+<p>硬盘负责长期保存数据，主要有两类：</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>类型</th><th>原理</th><th>速度</th><th>价格</th><th>特点</th></tr>
+</thead>
+<tbody>
+<tr><td>HDD 机械硬盘</td><td>磁头在高速旋转的盘片上读写</td><td>慢</td><td>容量大，单价较低</td><td>怕震动，有噪音</td></tr>
+<tr><td>SSD 固态硬盘</td><td>闪存芯片存储，没有机械结构</td><td>快</td><td>单价较高</td><td>安静，抗震</td></tr>
+</tbody>
+</table>
+</div>
+<p>现在系统盘直接上 SSD，没有悬念。HDD 更适合用来放不常用的大文件，比如备份、影视资料</p>
+<h3 id="ssd-的接口"><a class="header" href="#ssd-的接口">SSD 的接口</a></h3>
+<p>同样叫 SSD，接口却有好几种，外形和速度差别很大：</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>类型</th><th>外观</th><th>协议</th><th>大致速度</th></tr>
+</thead>
+<tbody>
+<tr><td>SATA SSD</td><td>2.5 英寸小方盒</td><td>SATA</td><td>约 500 MB/s</td></tr>
+<tr><td>M.2 SATA</td><td>口香糖条状</td><td>SATA</td><td>约 500 MB/s</td></tr>
+<tr><td>M.2 NVMe</td><td>口香糖条状</td><td>NVMe（底层为 PCIe）</td><td>从 3000 MB/s 到上万 MB/s</td></tr>
+</tbody>
+</table>
+</div>
+<blockquote class="blockquote-tag blockquote-tag-warning">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Warning</p>
+<p><strong>M.2 接口不等于 NVMe！！！</strong> M.2 只是外形，里面跑 SATA 还是 NVMe 要看具体型号。而且有的主板 M.2 槽只支持其中一种。买之前一定先翻主板说明书</p>
+</blockquote>
+<h3 id="容量标注"><a class="header" href="#容量标注">容量标注</a></h3>
+<p>厂商按 1 GB = 1000 MB 算，而 Windows 按 1 GB = 1024 MB 算，所以标称 1 TB 的硬盘插上去只显示约 931 GB。这是单位换算问题，不是被坑了</p>
+<h2 id="主板"><a class="header" href="#主板">主板</a></h2>
+<p>主板是整台电脑的底座，所有零件都要插在它上面，它决定了你能用什么 CPU、什么内存、几块硬盘、多少 USB 接口</p>
+<pre><code class="language-mermaid">flowchart TB
+    MB["主板"]
+    MB --- S1["CPU 插槽"]
+    MB --- S2["内存插槽 DIMM"]
+    MB --- S3["PCIe 插槽&lt;br/&gt;显卡 / 扩展卡"]
+    MB --- S4["M.2 插槽&lt;br/&gt;NVMe SSD"]
+    MB --- S5["SATA 接口&lt;br/&gt;HDD / SATA SSD"]
+    MB --- S6["供电接口&lt;br/&gt;24Pin + CPU 供电"]
+    MB --- S7["后置 I/O&lt;br/&gt;USB / 网口 / 音频 / 视频"]
+    MB --- S8["BIOS / UEFI 芯片"]
+</code></pre>
+<h3 id="芯片组"><a class="header" href="#芯片组">芯片组</a></h3>
+<p>芯片组决定了主板的功能上限，比如能插几个 M.2、有多少个 USB 3.x 接口、支不支持 CPU 超频。同一个 CPU 插槽下，往往有高中低多种芯片组可选，<strong>价格差距主要来自这里</strong></p>
+<h3 id="板型"><a class="header" href="#板型">板型</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>板型</th><th>尺寸</th><th>特点</th></tr>
+</thead>
+<tbody>
+<tr><td>ATX</td><td>最大</td><td>扩展槽多，适合大机箱</td></tr>
+<tr><td>Micro-ATX（M-ATX）</td><td>中等</td><td>插槽够用，性价比高</td></tr>
+<tr><td>Mini-ITX</td><td>最小</td><td>小机箱专用，插槽少</td></tr>
+</tbody>
+</table>
+</div>
+<p>板型要和机箱匹配：大板子装不进小机箱，小板子可以装进大机箱</p>
+<p><del>当然，也可以不需要机箱，就不用考虑这些了</del></p>
+<h3 id="bios--uefi"><a class="header" href="#bios--uefi">BIOS / UEFI</a></h3>
+<p>主板上有一块固件芯片，里面存着最底层的启动程序，开机后最先运行的就是它。现在基本都是 UEFI，也习惯性叫 BIOS。可以在里面调整启动顺序、开启 XMP、查看硬件状态等</p>
+<blockquote class="blockquote-tag blockquote-tag-tip">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p>
+<p>开机时连续按 <code>Del</code> 或 <code>F2</code>（不同品牌不一样，常见的还有 <code>F10</code>、<code>F12</code>）可以进入 BIOS。具体按键开机画面一般有提示</p>
+</blockquote>
+<blockquote class="blockquote-tag blockquote-tag-tip">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p>
+<p>严格来说 UEFI 主要是由两块芯片组成的，一块是主板上的固件芯片，平时只可读；另一块是 CMOS 芯片，自定义的 UEFI 设置都是存储在 CMOS 里，平时是靠主板上的纽扣电池供电的，所以拔掉电池或放电会清空 CMOS，BIOS 设置会恢复出厂</p>
+</blockquote>
+<h2 id="显卡"><a class="header" href="#显卡">显卡</a></h2>
+<p>显卡（GPU）负责图形渲染。现在它的用途已经不只是玩游戏，视频剪辑、3D 建模、AI 训练和推理都靠它</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>类型</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>集成显卡</td><td>在 CPU 里，共用系统内存，没有独立显存，性能弱，功耗低</td></tr>
+<tr><td>独立显卡</td><td>有专用显存和散热，插在主板 PCIe 插槽上，性能强，功耗高</td></tr>
+</tbody>
+</table>
+</div>
+<p>选显卡时最该看的几项：</p>
+<ul>
+<li><strong>显存容量</strong>：影响能跑多大的游戏画质、多大的 AI 模型，不够用就爆显存卡成幻灯片</li>
+<li><strong>GPU 本身的型号和代数</strong>：同系列里数字越大一般越强，但跨代不能只看数字</li>
+<li><strong>功耗和供电接口</strong>：要确认电源功率够，接口对得上</li>
+<li><strong>长度和厚度</strong>：要确认机箱装得下</li>
+</ul>
+<blockquote class="blockquote-tag blockquote-tag-note">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
+<p>笔记本的独显通常焊死在主板上，<strong>不能更换</strong>。买之前就要想好需求</p>
+</blockquote>
+<h2 id="电源"><a class="header" href="#电源">电源</a></h2>
+<p>电源把插座里的 220V 交流电转成电脑内部需要的 12V、5V、3.3V 直流电</p>
+<p>电源出问题的后果可能最严重：轻则重启蓝屏，重则烧掉其他硬件</p>
+<p>挑电源要看：</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>项目</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>额定功率</td><td>够用并留点余量即可，也不是越大越好</td></tr>
+<tr><td>80 PLUS 认证</td><td>标明转换效率，从白牌到钛金牌逐级提高</td></tr>
+<tr><td>接口</td><td>有没有显卡需要的供电口，有没有足够的 SATA 口</td></tr>
+<tr><td>模组化</td><td>模组电源的线可以拆，理线方便，价格略高</td></tr>
+</tbody>
+</table>
+</div>
+<blockquote class="blockquote-tag blockquote-tag-warning">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Warning</p>
+<p>电源不要买来路不明的杂牌！！！省下几十块钱，搭进去的可能是整机硬件。电源也是需要看口碑的东西，因为问题都是概率性的，口碑好的品控好一点，出问题的概率就小</p>
+</blockquote>
+<p>估算功率的方法：CPU 和显卡的功耗相加，再加上约 100W 给其他部件，然后留 20% 左右的余量，就是比较合适的额定功率</p>
+<blockquote class="blockquote-tag blockquote-tag-tip">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p>
+<p>如果使用 AMD 显卡请务必留出更多余量，多 300W 都不为过。俗话说的好，N 卡偷 U，A 卡偷电</p>
+<p>这一块又涉及到经典的 A 卡容易掉驱动的问题，至少有一半的原因是功耗管理的问题（个人认为）</p>
+</blockquote>
+<h2 id="散热与机箱"><a class="header" href="#散热与机箱">散热与机箱</a></h2>
+<p>CPU 和显卡运行时会发热，温度过高会自动降频（降低性能来保护自己），严重时直接关机。常见的散热方式：</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>方式</th><th>特点</th></tr>
+</thead>
+<tbody>
+<tr><td>风冷</td><td>一个金属散热片加风扇，便宜、可靠、好维护</td></tr>
+<tr><td>水冷（一体式）</td><td>冷头 + 水管 + 冷排，高负载下散热更强，装起来更复杂，有漏液、水泵故障的风险</td></tr>
+</tbody>
+</table>
+</div>
+<p><del>千万不要碰分体水</del></p>
+<p>机箱除了装东西，还有一个重要作用：规划风道。一般是前进后出、下进上出，让冷风进来经过发热部件，再被带到外面</p>
+<pre><code class="language-mermaid">flowchart LR
+    A["前面板进风"] --&gt; B["经过硬盘 / 显卡"] --&gt; C["CPU 散热器"] --&gt; D["后部 / 顶部排风"]
+</code></pre>
+<blockquote class="blockquote-tag blockquote-tag-tip">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p>
+<p>灰尘是散热的最大敌人。建议根据使用情况每半年到一年清理一次灰，用吹风机的冷风或气吹就可以。清灰前要断电，并摸一下金属外壳释放静电</p>
+</blockquote>
+<h2 id="外设与接口"><a class="header" href="#外设与接口">外设与接口</a></h2>
+<p>主机之外的设备都算外设：显示器、键盘、鼠标、音箱、打印机等。它们通过各种接口连接到主机</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>接口</th><th>常见用途</th><th>备注</th></tr>
+</thead>
+<tbody>
+<tr><td>USB-A</td><td>鼠标、键盘、U 盘</td><td>最常见的方头接口</td></tr>
+<tr><td>USB-C</td><td>手机、笔记本、移动硬盘</td><td>正反都能插；但外形一样不代表功能一样~，气死我了~</td></tr>
+<tr><td>HDMI</td><td>显示器、电视</td><td>视频 + 音频</td></tr>
+<tr><td>DisplayPort（DP）</td><td>显示器</td><td>高刷新率显示器常用</td></tr>
+<tr><td>RJ45</td><td>网线</td><td>有线网络</td></tr>
+<tr><td>3.5mm 音频口</td><td>耳机、麦克风</td><td>台式机通常按颜色区分</td></tr>
+</tbody>
+</table>
+</div>
+<blockquote class="blockquote-tag blockquote-tag-warning">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Warning</p>
+<p><strong>USB-C 只是一种插头形状</strong>，里面可以跑 USB 2.0、USB 3.x、雷电、DP 视频输出、充电等不同的东西，不同口的能力完全不同。想知道某个口支持什么，要看产品说明书或旁边的标识</p>
+</blockquote>
+<h3 id="显示器要接在哪里"><a class="header" href="#显示器要接在哪里">显示器要接在哪里</a></h3>
+<p>显示器的线应该插在<strong>显卡</strong>的接口上，而不是主板上的接口上。装了独显以后，主板后面的视频口通常就没用了，不少人第一次装机会插错，然后发现没有画面</p>
+<h2 id="台式机与笔记本"><a class="header" href="#台式机与笔记本">台式机与笔记本</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>对比项</th><th>台式机</th><th>笔记本</th></tr>
+</thead>
+<tbody>
+<tr><td>可升级性</td><td>高，大部分零件都能换</td><td>低，一般只能换内存和硬盘，部分机型内存焊死</td></tr>
+<tr><td>同价位性能</td><td>强</td><td>弱</td></tr>
+<tr><td>便携性</td><td>无</td><td>有</td></tr>
+<tr><td>散热</td><td>好</td><td>受限，容易高温</td></tr>
+<tr><td>维修难度</td><td>低</td><td>高</td></tr>
+</tbody>
+</table>
+</div>
+<p>笔记本的 CPU 和显卡虽然名字和台式机相似，但功耗被限制过，性能并不一样。不能只看型号名称，要看具体的功耗释放和评测</p>
+<h2 id="在-windows-里查看硬件信息"><a class="header" href="#在-windows-里查看硬件信息">在 Windows 里查看硬件信息</a></h2>
+<p>不用拆机，也能知道电脑里装了什么：</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>方法</th><th>信息</th></tr>
+</thead>
+<tbody>
+<tr><td>任务管理器（<code>Ctrl + Shift + Esc</code>）→ 性能</td><td>CPU、内存、磁盘、GPU 的型号和实时占用</td></tr>
+<tr><td><code>Win + R</code> 输入 <code>msinfo32</code></td><td>系统和硬件的详细信息汇总</td></tr>
+<tr><td><code>Win + R</code> 输入 <code>dxdiag</code></td><td>显卡、声卡信息，DirectX 版本</td></tr>
+<tr><td>设备管理器（<code>Win + X</code> + <code>M</code>）</td><td>所有硬件列表以及驱动状态</td></tr>
+<tr><td>磁盘管理（<code>Win + X</code> + <code>K</code>）</td><td>硬盘分区情况</td></tr>
+</tbody>
+</table>
+</div>
+<blockquote class="blockquote-tag blockquote-tag-tip">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p>
+<p>想要更详细的信息，比如传感器温度、内存颗粒、主板型号，可以使用 CPU-Z、GPU-Z、HWiNFO 这类第三方工具。务必从官网下载</p>
+</blockquote>
+<h2 id="常见问题"><a class="header" href="#常见问题">常见问题</a></h2>
+<h3 id="按下开机键没有任何反应"><a class="header" href="#按下开机键没有任何反应">按下开机键没有任何反应</a></h3>
+<p>按这个顺序排查，由易到难：</p>
+<ol>
+<li>电源线有没有插紧，插排有没有开关</li>
+<li>电源背面的开关是否打开</li>
+<li>机箱前面板开机线是否插对（可以用螺丝刀短接主板上的开机针脚测试）</li>
+<li>内存、显卡是否插紧</li>
+<li>以上都没问题，大概率是电源或主板出问题</li>
+</ol>
+<h3 id="开机有风扇转但是没画面"><a class="header" href="#开机有风扇转但是没画面">开机有风扇转但是没画面</a></h3>
+<ul>
+<li>检查主板上的 Debug 灯</li>
+<li>显示器线插到显卡上了吗，而不是主板上</li>
+<li>显示器输入源选对了吗</li>
+<li>重新插拔内存条，换一根或换一个槽位试试</li>
+<li>没有核显的 CPU 必须有独显才有画面</li>
+</ul>
+<h3 id="电脑越用越慢"><a class="header" href="#电脑越用越慢">电脑越用越慢</a></h3>
+<ul>
+<li>内存是否占满（任务管理器可看）</li>
+<li>系统盘是不是快满了，或者还在用 HDD</li>
+<li>有没有过热降频，可以用 HWiNFO 看温度</li>
+<li>开机自启动的软件是不是太多</li>
+</ul>
+<h3 id="为什么我新买的硬盘容量比标的小"><a class="header" href="#为什么我新买的硬盘容量比标的小">为什么我新买的硬盘容量比标的小</a></h3>
+<p>这是 1000 和 1024 的换算问题，不是缺斤少两，参见<a href="#容量标注">容量标注</a></p>
+<h2 id="装机前的检查清单"><a class="header" href="#装机前的检查清单">装机前的检查清单</a></h2>
+<p>如果你打算自己组一台电脑，下单前把这些对一遍：</p>
+<pre><code class="language-mermaid">flowchart TD
+    A["确定预算和用途"] --&gt; B["选 CPU"]
+    B --&gt; C["选匹配插槽的主板"]
+    C --&gt; D["选主板支持的内存代数"]
+    D --&gt; E["选显卡 / 看 CPU 有无核显"]
+    E --&gt; F["选硬盘&lt;br/&gt;确认 M.2 接口类型"]
+    F --&gt; G["选电源&lt;br/&gt;功率 + 接口"]
+    G --&gt; H["选机箱和散热&lt;br/&gt;板型 / 显卡长度 / 散热器高度"]
+</code></pre>
+<ul>
+<li>CPU 插槽和主板插槽是否一致</li>
+<li>内存代数和主板是否一致</li>
+<li>主板板型和机箱是否匹配</li>
+<li>显卡长度，机箱能不能装下</li>
+<li>散热器高度，机箱侧板能不能盖上</li>
+<li>电源功率和接口是否满足</li>
+<li>如果没有核显，一定要有独显</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../Basics/OS.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="../Basics/Shortcuts.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../Basics/OS.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="../Basics/Shortcuts.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr-ef4e11c1.min.js"></script>
+        <script src="../mark-09e88c2c.min.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
+
+        <script src="../clipboard-1626706a.min.js"></script>
+        <script src="../highlight-abc7f01d.js"></script>
+        <script src="../book-609e4cb8.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../theme/pc-hospital-0f640e68.js"></script>
+        <script src="../theme/mermaid-12-a8a6a6f8.2.0.min.js"></script>
+        <script src="../theme/mermaid-init-b689ef3d.js"></script>
+
+
+
+    </div>
+    </body>
+</html>
