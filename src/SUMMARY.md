@@ -71,6 +71,7 @@
     - [网卡调优](Manual/KnowledgeBase/NetworkOptimize.md)
     - [开启 TUN 后本地服务无法访问](Manual/KnowledgeBase/TUNLoopback.md)
     - [已使用的未用簇错误](Manual/KnowledgeBase/NTFSBitmap.md)
+    - [Jupyter 无法导入 Pytorch](Manual/KnowledgeBase/JupyterPytorchErr.md)
     - [PowerShell 7 启动即闪退](Manual/KnowledgeBase/Pwsh7StartupCrash.md)
     - [USB 接针类型](Manual/KnowledgeBase/USBPinOut.md)
     - [机械硬盘异响但是扫描正常](Manual/KnowledgeBase/HDDKnocking.md)
